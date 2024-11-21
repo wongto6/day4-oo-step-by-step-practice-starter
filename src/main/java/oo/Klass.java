@@ -5,6 +5,7 @@ import java.util.Objects;
 public class Klass {
 
     private final Integer number;
+    private Student classLeader;
 
     public Klass(Integer number) {
         this.number = number;
@@ -12,6 +13,14 @@ public class Klass {
 
     public Integer getNumber() {
         return number;
+    }
+
+    public void assignClassLeader(Student classLeader) {
+        this.classLeader = classLeader;
+    }
+
+    public boolean isLeader(Student student) {
+        return classLeader.equals(student);
     }
 
     @Override
