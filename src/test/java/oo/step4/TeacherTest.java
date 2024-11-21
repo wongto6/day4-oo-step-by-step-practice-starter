@@ -23,7 +23,6 @@ public class TeacherTest {
         Teacher jerry = new Teacher(1, "Jerry", 21);
         Klass klass = new Klass(1);
         jerry.assignTo(klass);
-
         boolean belongsTo = jerry.belongsTo(klass);
 
         assertThat(belongsTo).isTrue();
