@@ -4,9 +4,9 @@ import java.util.Objects;
 
 public class Person {
 
-    protected int id;
+    protected Integer id;
     protected String name;
-    protected int age;
+    protected Integer age;
 
     public Person(int id, String name, int age) {
         this.id = id;
@@ -19,11 +19,11 @@ public class Person {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Person person = (Person) o;
-        return id == person.id;
+    public boolean equals(Object anotherPerson) {
+        if (this == anotherPerson) return true;
+        if (anotherPerson == null || getClass() != anotherPerson.getClass()) return false;
+        Person person = (Person) anotherPerson;
+        return Objects.equals(id, person.id);
     }
 
     @Override
