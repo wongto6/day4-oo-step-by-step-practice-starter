@@ -15,7 +15,6 @@ public class TeacherTest {
         Klass klass = new Klass(1);
 
         boolean belongsTo = jerry.belongsTo(klass);
-
         assertThat(belongsTo).isFalse();
     }
 
