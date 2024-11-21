@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 public class Teacher extends Person {
     private static final String OCCUPATION = "teacher";
+    public static final String FULLSTOP = ".";
 
     private List<Klass> teachingClasses = new ArrayList<>();
 
@@ -28,7 +29,7 @@ public class Teacher extends Person {
         return " I teach Class " + teachingClasses
                 .stream()
                 .map(klass -> klass.getNumber().toString())
-                .collect(Collectors.joining(", ")) + ".";
+                .collect(Collectors.joining(", ")) + FULLSTOP;
     }
 
     public void assignTo(Klass klass) {

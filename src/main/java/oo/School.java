@@ -2,12 +2,10 @@ package oo;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class School {
 
     private List<Person> people;
-    private List<Person> observers = new ArrayList<>();
 
     public School(List<Person> people) {
         this.people = people;
