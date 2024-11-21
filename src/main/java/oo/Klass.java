@@ -39,7 +39,7 @@ public class Klass {
     }
 
     public void notifyByAttachMode() {
-        if (attachedPerson == null) {
+        if (attachedPerson == null && school != null) {
             updateListOfObservers(school);
             notifyAllObservers();
         } else {
