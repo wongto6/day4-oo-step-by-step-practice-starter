@@ -3,6 +3,7 @@ package oo;
 public class Student extends Person {
 
     private static final String OCCUPATION = "student";
+    private Klass klass;
 
     public Student(Integer id, String name, Integer age) {
         super(id, name, age);
@@ -10,7 +11,15 @@ public class Student extends Person {
 
     @Override
     public String introduce() {
-        return String.format("My name is %s. I am %d years old. I am a %s.", name, age, OCCUPATION);
+        return super.introduce() + String.format(" I am a %s.", OCCUPATION);
+    }
+
+    public void join(Klass inputClass) {
+        this.klass = inputClass;
+    }
+
+    public boolean isIn(Klass inputClass) {
+        return klass != null && this.klass.getNumber().equals(inputClass.getNumber());
     }
 
 }
