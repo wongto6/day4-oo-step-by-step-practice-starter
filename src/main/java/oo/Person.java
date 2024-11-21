@@ -1,6 +1,6 @@
 package oo;
 
-public class Person {
+public class Person{
 
     private int id;
     private String name;
@@ -14,5 +14,10 @@ public class Person {
 
     public String introduce() {
         return String.format("My name is %s. I am %d years old.", name, age);
+    }
+
+    @Override
+    public boolean equals(Object anotherPerson) {
+        return this.id == ((Person) anotherPerson).id;
     }
 }
