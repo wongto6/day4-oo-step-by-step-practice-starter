@@ -11,7 +11,8 @@ public class Student extends Person {
 
     @Override
     public String introduce() {
-        return super.introduce() + String.format(" I am a %s.", OCCUPATION);
+        String introduction = super.introduce() + String.format(" I am a %s.", OCCUPATION);
+        return isClassLeader() ? introduction + String.format(" I am the leader of class %d.", klass.getNumber()) : introduction;
     }
 
     public void join(Klass inputClass) {
@@ -20,6 +21,10 @@ public class Student extends Person {
 
     public boolean isIn(Klass inputClass) {
         return klass != null && this.klass.getNumber().equals(inputClass.getNumber());
+    }
+
+    public boolean isClassLeader() {
+        return klass != null && this.klass.getClassLeader().equals(this);
     }
 
 }

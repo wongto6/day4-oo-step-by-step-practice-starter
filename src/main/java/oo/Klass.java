@@ -15,12 +15,20 @@ public class Klass {
         return number;
     }
 
-    public void assignClassLeader(Student classLeader) {
-        this.classLeader = classLeader;
+    public Student getClassLeader() {
+        return classLeader;
+    }
+
+    public void assignLeader(Student classLeader) {
+        if (!classLeader.isIn(this)) {
+            System.out.println("It is not one of us");
+        } else {
+            this.classLeader = classLeader;
+        }
     }
 
     public boolean isLeader(Student student) {
-        return classLeader.equals(student);
+        return classLeader != null && classLeader.equals(student);
     }
 
     @Override
