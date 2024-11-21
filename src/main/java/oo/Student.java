@@ -15,6 +15,11 @@ public class Student extends Person {
         return isClassLeader() ? introduction + String.format(" I am the leader of class %d.", klass.getNumber()) : introduction;
     }
 
+    @Override
+    public boolean checkInClass(Klass klass) {
+        return isIn(klass);
+    }
+
     public void join(Klass inputClass) {
         this.klass = inputClass;
     }
@@ -29,6 +34,6 @@ public class Student extends Person {
 
     @Override
     public void notifiedLeaderAssignment(Klass klass) {
-        System.out.printf("I am %s, %s of Class %d. I know %s become Leader.", name, OCCUPATION, klass.getNumber(), klass.getClassLeader().name);
+        System.out.printf("I am %s, %s of Class %d. I know %s become Leader.%n", name, OCCUPATION, klass.getNumber(), klass.getClassLeader().name);
     }
 }

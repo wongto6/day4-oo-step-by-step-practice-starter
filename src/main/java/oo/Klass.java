@@ -1,5 +1,7 @@
 package oo;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Klass {
@@ -7,6 +9,9 @@ public class Klass {
     private final Integer number;
     private Student classLeader;
     private Person attachedPerson;
+    private School school;
+
+    private List<Person> observers = new ArrayList<>();
 
     public Klass(Integer number) {
         this.number = number;
@@ -20,13 +25,39 @@ public class Klass {
         return classLeader;
     }
 
+    public void setSchool(School school) {
+        this.school = school;
+    }
+
     public void assignLeader(Student classLeader) {
         if (!classLeader.isIn(this)) {
             System.out.println("It is not one of us");
         } else {
             this.classLeader = classLeader;
+            notifyByAttachMode();
+        }
+    }
+
+    public void notifyByAttachMode() {
+        if (attachedPerson == null) {
+            updateListOfObservers(school);
+            notifyAllObservers();
+        } else {
             notifyAttachedPerson();
         }
+    }
+
+    public void updateListOfObservers(School school) {
+        this.observers = school
+                .getPeopleInClass(this)
+                .stream()
+                .filter(observer -> !observer.name.equals(classLeader.name))
+                .toList();
+    }
+
+    public void notifyAllObservers() {
+        observers
+                .forEach(observer -> observer.notifiedLeaderAssignment(this));
     }
 
     public void notifyAttachedPerson() {

@@ -19,6 +19,11 @@ public class Teacher extends Person {
         return teachingClasses.isEmpty() ? introduction : introduction + getTeachingClasses();
     }
 
+    @Override
+    public boolean checkInClass(Klass klass){
+        return teachingClasses.contains(klass);
+    }
+
     public String getTeachingClasses() {
         return " I teach Class " + teachingClasses
                 .stream()
@@ -40,6 +45,6 @@ public class Teacher extends Person {
 
     @Override
     public void notifiedLeaderAssignment(Klass klass) {
-        System.out.printf("I am %s, %s of Class %d. I know %s become Leader.", name, OCCUPATION, klass.getNumber(), klass.getClassLeader().name);
+        System.out.printf("I am %s, %s of Class %d. I know %s become Leader.%n", name, OCCUPATION, klass.getNumber(), klass.getClassLeader().name);
     }
 }

@@ -19,7 +19,11 @@ public class Person {
     }
 
     public void notifiedLeaderAssignment(Klass klass) {
-        System.out.printf("I am %s, OCCUPATION of Class %d. I know %s become Leader.", name, klass.getNumber(), klass.getClassLeader());
+        System.out.printf("I am %s, OCCUPATION of Class %d. I know %s become Leader.%n", name, klass.getNumber(), klass.getClassLeader());
+    }
+
+    public boolean checkInClass(Klass klass) {
+        return false;
     }
 
     @Override
