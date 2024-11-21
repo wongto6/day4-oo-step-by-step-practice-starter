@@ -6,6 +6,7 @@ public class Klass {
 
     private final Integer number;
     private Student classLeader;
+    private Person attachedPerson;
 
     public Klass(Integer number) {
         this.number = number;
@@ -24,7 +25,13 @@ public class Klass {
             System.out.println("It is not one of us");
         } else {
             this.classLeader = classLeader;
+            attachedPerson.notifiedLeaderAssignment(this);
+
         }
+    }
+
+    public void attach(Person person) {
+        this.attachedPerson = person;
     }
 
     public boolean isLeader(Student student) {

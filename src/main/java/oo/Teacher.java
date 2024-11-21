@@ -37,4 +37,9 @@ public class Teacher extends Person {
     public boolean isTeaching(Student student) {
         return teachingClasses.stream().anyMatch(student::isIn);
     }
+
+    @Override
+    public void notifiedLeaderAssignment(Klass klass) {
+        System.out.printf("I am %s, %s of Class %d. I know %s become Leader.", name, OCCUPATION, klass.getNumber(), klass.getClassLeader().name);
+    }
 }

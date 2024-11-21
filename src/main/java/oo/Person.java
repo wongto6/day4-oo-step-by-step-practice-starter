@@ -18,6 +18,10 @@ public class Person {
         return String.format("My name is %s. I am %d years old.", name, age);
     }
 
+    public void notifiedLeaderAssignment(Klass klass) {
+        System.out.printf("I am %s, OCCUPATION of Class %d. I know %s become Leader.", name, klass.getNumber(), klass.getClassLeader());
+    }
+
     @Override
     public boolean equals(Object anotherPerson) {
         if (this == anotherPerson) return true;

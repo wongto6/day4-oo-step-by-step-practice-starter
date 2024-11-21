@@ -27,4 +27,8 @@ public class Student extends Person {
         return klass != null && this.klass.getClassLeader().equals(this);
     }
 
+    @Override
+    public void notifiedLeaderAssignment(Klass klass) {
+        System.out.printf("I am %s, %s of Class %d. I know %s become Leader.", name, OCCUPATION, klass.getNumber(), klass.getClassLeader().name);
+    }
 }
