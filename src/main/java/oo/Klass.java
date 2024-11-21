@@ -25,8 +25,13 @@ public class Klass {
             System.out.println("It is not one of us");
         } else {
             this.classLeader = classLeader;
-            attachedPerson.notifiedLeaderAssignment(this);
+            notifyAttachedPerson();
+        }
+    }
 
+    public void notifyAttachedPerson() {
+        if (attachedPerson != null) {
+            attachedPerson.notifiedLeaderAssignment(this);
         }
     }
 
