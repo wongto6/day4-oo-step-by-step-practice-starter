@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class Person {
 
+    public static final String MY_NAME_IS_S_I_AM_D_YEARS_OLD = "My name is %s. I am %d years old.";
     protected Integer id;
     protected String name;
     protected Integer age;
@@ -15,7 +16,7 @@ public class Person {
     }
 
     public String introduce() {
-        return String.format("My name is %s. I am %d years old.", name, age);
+        return String.format(MY_NAME_IS_S_I_AM_D_YEARS_OLD, name, age);
     }
 
     public void notifiedLeaderAssignment(Klass klass) {
