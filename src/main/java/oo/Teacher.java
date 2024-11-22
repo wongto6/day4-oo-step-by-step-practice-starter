@@ -21,7 +21,7 @@ public class Teacher extends Person {
     }
 
     @Override
-    public boolean checkInClass(Klass klass){
+    public boolean checkInClass(Klass klass) {
         return teachingClasses.contains(klass);
     }
 
