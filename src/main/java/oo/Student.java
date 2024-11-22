@@ -12,7 +12,12 @@ public class Student extends Person {
     @Override
     public String introduce() {
         String introduction = super.introduce() + String.format(" I am a %s.", OCCUPATION);
-        return isClassLeader() ? introduction + String.format(" I am the leader of class %d.", klass.getNumber()) : introduction;
+        String fromClassIntro = getFromClassIntro();
+        return isClassLeader() ? introduction + String.format(" I am the leader of class %d.", klass.getNumber()) : introduction + fromClassIntro;
+    }
+
+    private String getFromClassIntro() {
+        return klass == null ? "" : String.format(" I am in class %d.", klass.getNumber());
     }
 
     @Override
@@ -29,7 +34,7 @@ public class Student extends Person {
     }
 
     public boolean isClassLeader() {
-        return klass != null && this.klass.getClassLeader().equals(this);
+        return klass != null && klass.hasClassLeader() && this.klass.getClassLeader().equals(this);
     }
 
     @Override

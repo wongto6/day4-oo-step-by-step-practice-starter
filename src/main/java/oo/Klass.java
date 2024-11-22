@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class Klass {
 
-    public static final String IT_IS_NOT_ONE_OF_US = "It is not one of us";
+    public static final String IT_IS_NOT_ONE_OF_US = "It is not one of us.";
     private final Integer number;
     private Student classLeader;
     private Person attachedPerson;
@@ -26,13 +26,17 @@ public class Klass {
         return classLeader;
     }
 
+    public boolean hasClassLeader() {
+        return classLeader != null;
+    }
+
     public void setSchool(School school) {
         this.school = school;
     }
 
     public void assignLeader(Student classLeader) {
         if (!classLeader.isIn(this)) {
-            System.out.println(IT_IS_NOT_ONE_OF_US);
+            System.out.printf(IT_IS_NOT_ONE_OF_US);
         } else {
             this.classLeader = classLeader;
             notifyByAttachMode();
@@ -52,7 +56,7 @@ public class Klass {
         this.observers = school
                 .getPeopleInClass(this)
                 .stream()
-                .filter(observer -> !observer.name.equals(classLeader.name))
+                .filter(observer -> !(observer.id.equals(classLeader.id) && observer instanceof Student))
                 .toList();
     }
 
